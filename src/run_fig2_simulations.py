@@ -24,7 +24,7 @@ def run_simulation_from_config(config_path):
         combo_id = params['combo_id']
         print(f"[Process {os.getpid()}] Starting simulation for: {combo_id}")
 
-        # 2. 创建输出目录 (线程安全)
+        # 2. 创建输出目录
         output_dir = os.path.join('data', 'fig2')
         os.makedirs(output_dir, exist_ok=True)
         
@@ -67,18 +67,13 @@ if __name__ == "__main__":
     ]
     
     # 使用 ProcessPoolExecutor 来并行运行任务
-    # max_workers=None 会自动使用机器上所有可用的CPU核心
-    # 在HPC上，您可能需要根据分配给您的核心数来设置它，例如 max_workers=8
     max_cores = os.cpu_count()
     print(f"Starting parallel simulations on up to {max_cores} cores...")
 
     with concurrent.futures.ProcessPoolExecutor(max_workers=None) as executor:
-        # executor.map 会将 config_files 列表中的每个元素
-        # 作为参数传递给 run_simulation_from_config 函数，并并行执行它们。
-        # 它会阻塞，直到所有任务完成。
+
         results = executor.map(run_simulation_from_config, config_files)
 
-        # 检查每个任务的结果（可选，但有助于调试）
         for result in results:
             if "Error" in result:
                 print(f"A simulation task failed: {result}")
@@ -88,4 +83,5 @@ if __name__ == "__main__":
     print("\n" + "="*40)
     print("All simulations for Figure 2 are complete.")
     print(f"Total execution time: {end_time - start_time:.2f} seconds.")
+
     print("="*40)
