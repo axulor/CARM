@@ -14,7 +14,7 @@ from src.core.simulation import Simulation
 from src.core.agent import Agent
 
 # ===================================================================
-# 1. 继承 Agent 和 Simulation 类 (为了独立性)
+# 1. 继承 Agent 和 Simulation 类 
 # ===================================================================
 class AgentForFig8(Agent):
     def decide_next_action(self):
