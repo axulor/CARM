@@ -14,7 +14,6 @@ def run_simulation(params, seed=None, capture_times=None):
     通用仿真函数。
     - 强制 MAX_MC_STEPS = 2000
     - 仅按给定 capture_times 抓取快照
-    - timeseries 仍然按原逻辑收集（用于一致性）
     """
     if seed is not None:
         random.seed(seed)
@@ -83,12 +82,11 @@ def process_config(config_path, seed=42):
     # 单次运行直接捕捉
     _, captured_data = run_simulation(params, seed=seed, capture_times=capture_times)
 
-    # 保存 npz（文件名与原脚本一致）
     output_dir = os.path.join('data', 'fig6')
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, f"{params['combo_id']}_snapshots.npz")
 
-    # 保存并带上 snapshot_times（int 数组）
+    # 保存
     np.savez(output_path, **captured_data, snapshot_times=np.array(capture_times, dtype=int))
     print(f"  -> Snapshot data saved to {output_path}")
 
@@ -104,3 +102,4 @@ if __name__ == "__main__":
         process_config(cfg, seed=master_seed)
 
     print("\nAll snapshot generation for Figure 6 is complete.")
+
