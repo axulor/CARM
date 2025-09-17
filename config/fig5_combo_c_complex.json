@@ -1,0 +1,12 @@
+{
+    "combo_id": "fig5_combo_c_complex",
+    "L": 50, 
+    "INIT_COOP_RATIO": 0.5, 
+    "COST": 1.0,
+    "MAX_MC_STEPS": 5000, 
+    "RECORD_INTERVAL_MC": 1,
+    "R_FACTOR": 3.7, 
+    "BETA": 0.5, 
+    "GAMMA": 0.5, 
+    "KAPPA": 0.2
+}

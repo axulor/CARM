@@ -1,0 +1,12 @@
+{
+    "combo_id": "combo3_oscillation",
+    "L": 100,
+    "INIT_COOP_RATIO": 0.5,
+    "MAX_MC_STEPS": 100000,
+    "RECORD_INTERVAL_MC": 1,
+    "R_FACTOR": 3.7,
+    "COST": 1.0,
+    "BETA": 0.3,
+    "GAMMA": 0.7,
+    "KAPPA": 0.3
+}

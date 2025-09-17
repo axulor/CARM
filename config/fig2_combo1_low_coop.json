@@ -1,0 +1,12 @@
+{
+    "combo_id": "combo1_low_coop",
+    "L": 100,
+    "INIT_COOP_RATIO": 0.5,
+    "MAX_MC_STEPS": 100000,
+    "RECORD_INTERVAL_MC": 1,
+    "R_FACTOR": 3.0,
+    "COST": 1.0,
+    "BETA": 1.0,
+    "GAMMA": 1.0,
+    "KAPPA": 1.0
+}

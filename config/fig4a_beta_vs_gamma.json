@@ -1,0 +1,13 @@
+{
+    "experiment_id": "fig4a_beta_vs_gamma",
+    "L": 50,
+    "N_REPLICAS": 10,
+    "INIT_COOP_RATIO": 0.5,
+    "TRANSIENT_MC_STEPS": 10000,
+    "SAMPLING_MC_STEPS": 500,
+    "R_FACTOR": 3.7,
+    "COST": 1.0,
+    "KAPPA": 0.3, 
+    "BETA_AXIS": {"scale": "log", "min": 0.1, "max": 2.0, "num": 50},
+    "GAMMA_AXIS": {"scale": "log", "min": 0.1, "max": 2.0, "num": 50}
+}

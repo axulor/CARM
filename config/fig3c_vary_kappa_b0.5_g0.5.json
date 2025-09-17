@@ -1,0 +1,15 @@
+{
+    "experiment_id": "fig3c_vary_kappa_b0.5_g0.5",
+    "num_runs": 10,
+    "max_total_steps": 100000,
+    "sampling_steps": 1000,
+    "early_stop_threshold": 0.001,
+    "early_stop_window": 1000,
+    "L": 50,
+    "INIT_COOP_RATIO": 0.5,
+    "R_FACTOR_RANGE": [2.2, 5.8, 0.3],
+    "COST": 1.0,
+    "BETA": 0.5,
+    "GAMMA": 0.5,
+    "KAPPA_VALUES": [0.0, 0.3, 0.7, 1.0]
+}
