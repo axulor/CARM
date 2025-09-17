@@ -27,7 +27,7 @@ def run_simulation(params, seed=None, capture_times=None):
 
     sim = Simulation(params)
 
-    # --- 快照数据容器 ---
+    # 快照数据
     snapshot_data = {}
 
     # t=0 的初始状态快照（策略 + 遗憾置零）
@@ -54,10 +54,10 @@ def run_simulation(params, seed=None, capture_times=None):
         if step % params['RECORD_INTERVAL_MC'] == 0:
             sim._collect_metrics(step)
 
-    # 记录 t=0 的宏观数据（与原脚本一致）
+    # 记录 t=0 的宏观数据
     sim._collect_metrics(0)
 
-    # timeseries 与原格式一致（rho_CD 仍按归一化处理）
+    # timeseries 注意格式
     timeseries = pd.DataFrame({
         'mc_step': sim.time_steps,
         'rho_C': sim.history_rho_C,
@@ -102,4 +102,5 @@ if __name__ == "__main__":
         process_config(cfg, seed=master_seed)
 
     print("\nAll snapshot generation for Figure 6 is complete.")
+
 
