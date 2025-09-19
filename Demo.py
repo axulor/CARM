@@ -21,7 +21,7 @@ R_FACTOR = 3.5  # Synergy factor for cooperation (增益因子 r)
 # GAMMA: “运气”成分(|ΔU|)越大，omega权重下降越快。高GAMMA代表智能体更“严格”，不信任运气。
 BETA = 0.5      # Accessibility sensitivity (距离敏感度 β)
 GAMMA = 0.5     # Attribution sensitivity (归因敏感度 γ)
-KAPPA = 0.1     # Rejoicing Sensitivity (庆幸敏感度 κ), 0 < KAPPA < 1
+KAPPA = 0.1     #  0 < KAPPA < 1
 
 # Simulation Parameters
 MAX_STEPS = 200 * N      # Total simulation time. One step = one agent update.
@@ -214,10 +214,10 @@ class Simulation:
         steps = 500
 
         for step in range(1, steps + 1):
-            # 1. 保存所有当前动作
+            # 保存所有当前动作
             actions_prev = [agent.action for agent in self.agents]
             
-            # 2. 所有智能体同步计算下一步动作
+            # 所有智能体同步计算下一步动作
             next_actions = []
             for idx, agent in enumerate(self.agents):
                 # 复制neighbor动作为当前actions_prev
@@ -228,11 +228,11 @@ class Simulation:
                 next_action = agent.decide_next_action()
                 next_actions.append(next_action)
             
-            # 3. 同步替换所有动作
+            # 同步替换所有动作
             for agent, a_next in zip(self.agents, next_actions):
                 agent.action = a_next
 
-            # 4. 记录
+            # 记录
             self._collect_metrics(step)
             print(f"Step {step}/{steps} | ρ_C: {self.history_rho_C[-1]:.3f} | L_CD: {self.history_L_CD[-1]}")
         print("SYNC Simulation finished.")
@@ -242,7 +242,7 @@ class Simulation:
         """Visualizes the collected metrics."""
         fig, ax1 = plt.subplots(figsize=(12, 6))
         
-        # 使用对数时间轴以更好地观察收敛过程
+        # 使用对数时间轴
         ax1.set_xscale('log')
         
         color = 'tab:blue'
@@ -274,4 +274,5 @@ if __name__ == "__main__":
     
     sim = Simulation()
     sim.run()
+
     sim.plot_results()
