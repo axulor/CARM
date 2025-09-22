@@ -159,7 +159,7 @@ def generate_all_facet_figures():
     os.makedirs(output_dir, exist_ok=True)
     data_root = os.path.join(PROJECT_ROOT, 'data', 'fig3')
 
-    # Figure 3a：不改动
+    # Figure 3a
     plot_figure_facet(
         data_path=os.path.join(data_root, 'fig3a_vary_beta_g0.5_k0.5.csv'),
         output_path=os.path.join(output_dir, 'Figure_3a_Facet.png'),
@@ -167,7 +167,7 @@ def generate_all_facet_figures():
         hline_at_x=None
     )
 
-    # Figure 3b：不改动
+    # Figure 3b
     plot_figure_facet(
         data_path=os.path.join(data_root, 'fig3b_vary_gamma_b0.5_k0.5.csv'),
         output_path=os.path.join(output_dir, 'Figure_3b_Facet.png'),
@@ -181,9 +181,9 @@ def generate_all_facet_figures():
         output_path=os.path.join(output_dir, 'Figure_3c_Facet.png'),
         x_var='r', hue_var='KAPPA', legend_title='κ', palette=palette_kappa,
         hline_at_x=2.2,
-        hline_only_for_hue_value=0.0,     # 只在 κ=0 的分面子图上画
-        hline_color="#3B82F6",            # 稍亮的蓝色
-        hline_width=2.2                   # 稍粗
+        hline_only_for_hue_value=0.0,     
+        hline_color="#3B82F6",            
+        hline_width=2.2                   
     )
 
 if __name__ == "__main__":
@@ -192,3 +192,4 @@ if __name__ == "__main__":
     sys.path.insert(0, PROJECT_ROOT)
     generate_all_facet_figures()
     print("\nAll facet plot figures for Figure 3 generated.")
+
