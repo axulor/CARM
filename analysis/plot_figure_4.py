@@ -18,11 +18,9 @@ LABELPAD_X        = 8
 LABELPAD_Y        = 2
 
 # ========= 画布与固定布局（关键） =========
-# 画布大小（英寸）——六张图都会完全一致
+# 画布大小
 FIGSIZE = (6.0, 5.2)
 
-# 主图与色标使用绝对坐标放置（[left, bottom, width, height]，相对整个画布）
-# 这样不同数据/坐标不会改变绘图区和色标的物理大小
 AX_RECT    = [0.14, 0.14, 0.70, 0.76]   # 主绘图区
 CBAR_RECT  = [0.86, 0.14, 0.03, 0.76]   # 右侧色标
 
@@ -142,3 +140,4 @@ def export_six_uniform_heatmaps():
 
 if __name__ == "__main__":
     export_six_uniform_heatmaps()
+
