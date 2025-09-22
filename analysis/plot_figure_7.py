@@ -9,7 +9,7 @@ plt.style.use('seaborn-v0_8-whitegrid')
 plt.rcParams['font.family'] = 'DejaVu Sans'
 plt.rcParams['text.usetex'] = False
 
-# ----- 冷峻配色（与前文一致）-----
+# ----- 冷峻配色 -----
 COLOR_STEEL   = '#649EC7'   # 蓝
 COLOR_TEAL    = '#21A57B'   # 绿（青绿）
 COLOR_CRIMSON = '#B14C59'   # 红
@@ -30,7 +30,7 @@ def _label_from_params(df_one):
         return rf'$\beta={beta:.1f},\ \gamma={gamma:.1f},\ \kappa={kappa:.1f}$'
 
     cid = str(df_one['combo_id'].iloc[0])
-    # 你当前的数据映射（保持一致）
+    # 你当前的数据映射
     mapping = {
         'oscillation':  r'$\beta=0.2,\ \gamma=0.8,\ \kappa=0.3$',
         'high_coop':   r'$\beta=0.5,\ \gamma=0.5,\ \kappa=1.0$',
@@ -62,7 +62,7 @@ def plot_figure_7_final(data_csv, out_png, out_pdf):
     combo_ids = list(df['combo_id'].unique())
     combo_ids.sort(key=lambda c: 0 if _is_oscillation_combo(c) else 1)
 
-    # 给每条曲线分配颜色（保持冷峻三色循环）
+    # 给每条曲线分配颜色
     colors = {}
     palette = [COLOR_STEEL, COLOR_TEAL, COLOR_CRIMSON]
     for i, cid in enumerate(combo_ids):
@@ -134,7 +134,6 @@ def plot_figure_7_final(data_csv, out_png, out_pdf):
     )
 
     # 底部子图不放图例
-    # 给抬高的图例留空间
     plt.tight_layout(rect=[0, 0, 1, 0.92])
 
     # 保存 PNG + PDF
