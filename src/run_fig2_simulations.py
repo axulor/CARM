@@ -53,9 +53,6 @@ def run_simulation_from_config(config_path):
 
 
 if __name__ == "__main__":
-    # 这一行至关重要，它保护了主程序入口点。
-    # 在Windows和macOS上，multiprocessing会重新导入主脚本来启动子进程，
-    # 如果没有这个保护，会无限递归地创建新进程导致崩溃。
     
     start_time = time.time()
     
@@ -85,3 +82,4 @@ if __name__ == "__main__":
     print(f"Total execution time: {end_time - start_time:.2f} seconds.")
 
     print("="*40)
+
