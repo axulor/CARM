@@ -30,7 +30,7 @@ class Agent:
         # Calculate Total Instantaneous Attributed Regret
         total_inst_regret = 0.0
         for s_prime in range(5):
-            # 1. Decompose
+            # Decompose
             cf_payoff_at_s = get_payoff(cf_a, s, r_factor, cost)
             cf_payoff_at_s_prime = get_payoff(cf_a, s_prime, r_factor, cost)
             self_contribution = cf_payoff_at_s - factual_payoff
@@ -68,3 +68,4 @@ class Agent:
             
 
         return 'C' if random.random() < prob_C else 'D'
+
