@@ -21,13 +21,13 @@ class Agent:
         gamma = self.params['GAMMA']
         kappa = self.params['KAPPA']
 
-        # --- Factual and Counterfactual Context ---
+        # Factual and Counterfactual Context ---
         factual_a = self.action
         cf_a = 'D' if factual_a == 'C' else 'C'
         s = sum(1 for n in self.neighbors if n.action == 'C')
         factual_payoff = get_payoff(factual_a, s, r_factor, cost)
 
-        # --- Calculate Total Instantaneous Attributed Regret (NEW LOGIC) ---
+        # Calculate Total Instantaneous Attributed Regret
         total_inst_regret = 0.0
         for s_prime in range(5):
             # 1. Decompose
@@ -36,25 +36,25 @@ class Agent:
             self_contribution = cf_payoff_at_s - factual_payoff
             others_contribution = cf_payoff_at_s_prime - cf_payoff_at_s
 
-            # 2. Attribution Weight (ω)
+            # Attribution Weight (ω)
             omega = omega_weight(others_contribution, gamma)
 
-            # 3. Learning Signal
+            # Learning Signal
             learning_signal = self_contribution + omega * others_contribution
             
-            # 4. Asymmetric Emotion (κ)
+            # Asymmetric Emotion (κ)
             asymmetric_signal = learning_signal if learning_signal > 0 else kappa * learning_signal
             
-            # 5. Accessibility Weight (π)
+            # Accessibility Weight (π)
             distance = abs(s_prime - s) + 1
             pi = pi_weight(distance, beta)
             
-            # 6. Accumulate
+            # Accumulate
             total_inst_regret += asymmetric_signal * pi
 
         self.instant_regret = total_inst_regret
 
-        # --- Update regret and decide action ---
+        # Update regret and decide action
         if cf_a == 'C':
             self.regret_table[s, 0] += total_inst_regret
         else:
@@ -66,4 +66,5 @@ class Agent:
 
         prob_C = pos_regret_C / sum_pos_regrets if sum_pos_regrets > 0 else 0.5
             
+
         return 'C' if random.random() < prob_C else 'D'
