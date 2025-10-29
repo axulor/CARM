@@ -21,10 +21,7 @@ This project investigates the evolutionary dynamics of cooperation in spatial pu
 │   ├── run_fig2_simulations.py   # Time series experiments
 │   ├── run_fig3_simulations.py   # Parameter sensitivity analysis
 │   ├── run_fig4_simulations.py   # 2D parameter space exploration
-│   ├── run_fig5_simulations.py   # Dynamic regime classification
-│   ├── run_fig6_simulations.py   # Extended time series analysis
-│   ├── run_fig7_simulations.py   # Resilience and recovery analysis
-│   └── run_fig8_simulations.py   # Strategy switching behavior analysis
+|   ...
 ├── config/                       # Experiment configuration files
 ├── data/                         # Generated simulation data
 ├── analysis/                     # Plotting and analysis scripts
