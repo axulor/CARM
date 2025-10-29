@@ -60,22 +60,7 @@ Heat maps revealing the complex parameter space structure:
 
 Shows both mean cooperation levels and their standard deviations across the parameter space.
 
-### Figure 5: Dynamic Regime Classification
-**Scripts**: `src/run_fig5_simulations.py`
-**Analysis**: `analysis/plot_figure_5.py`
-
-Detailed time series analysis of different dynamic regimes.
-
-Note that the variable names in the code are different from those in the paper. Please refer to the paper for the correct names.
-
-### Figure 8: Strategy Switching Behavior
-**Scripts**: `src/run_fig8_simulations.py`
-**Analysis**: `analysis/plot_figure_8.py`
-
-Microscopic analysis of individual agent decision-making:
-- Probability of strategy switching as a function of local environment
-- Environmental frequency distributions for cooperators vs defectors
-- Transition rates between strategies under different conditions
+......
 
 ## Quick Start
 
