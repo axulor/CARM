@@ -107,9 +107,6 @@ Experimental parameters are stored in JSON files in the `config/` directory. Eac
 ## Data Output
 
 Simulation results are automatically saved to the `data/` directory, organized by figure:
-- Time series data: cooperation fraction (ρ_C) and strategy correlation (L_CD) over time
-- Parameter sweep data: equilibrium values across parameter ranges
-- Individual run data: detailed agent-level information when needed
 
 ## Dependencies
 
